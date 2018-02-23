@@ -3,13 +3,62 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Test</title>
+        <title>Ethereum</title>
         <link rel="stylesheet" href="assets/styles.css">
         <script src="assets/jquery/jquery-3.3.1.min.js"></script>
         <script src="assets/web3.js"></script>
         <script src="assets/main.js"></script>
     </head>
     <body>
-        balance = <div id="balance"></div>
+        <header>
+            <div id="setting-provider">
+                Provider:
+                <select>
+                    <option value="ropsten.infura">https://ropsten.infura.io</option>
+                    <option value="mainnet.infura">https://mainnet.infura.io</option>
+                    <option value="custom">custom</option>
+                </select>
+                <input type="text" id="provider_host" value="127.0.0.1" placeholder="127.0.0.1">
+                <input type="text" id="provider_port" value="8545" placeholder="8545">
+            </div>
+            <div id="setting-account">
+                Address:
+                <input type="text" id="account_address" value="" placeholder="Your address">
+                <input type="text" id="account_private" value="" placeholder="Your private key">
+            </div>
+            <button type="button" id="connect_account">Connect</button>
+        </header>
+        <section>
+            Balance: <span id="account_balance"></span>
+        </section>
+        <nav>
+            <span id="menu_transactions">Transactions</span>
+            <span id="menu_transfer">Transfer</span>
+        </nav>
+        <section>
+            <div id="transactions">
+                Transactions: 
+                <table id="transaction_history_table">
+                    <thead>
+                        <tr>
+                            <td>From</td>
+                            <td>To</td>
+                            <td>Ammount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div id="transfer">
+                Transfer: 
+                To <input type="text" id="sendto" value="" placeholder="To address"><br>
+                Gas Limit <input type="number" id="sendto" value="300000"><br>
+                Gas Price <input type="number" id="sendto" value="50">(Gwei)<br>
+                <button id="send_transfer">Send</button><br>
+                Result: <span id="transfer_result"></span>
+            </div>
+        </section>
     </body>
 </html>
